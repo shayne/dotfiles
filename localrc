@@ -1,0 +1,23 @@
+alias clang_gen='rm -rf /tmp/scan-build*; xcodebuild clean; /Developer/Tools/clang/scan-build --view xcodebuild'
+
+export RUBYOPT='rubygems'
+
+alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias mysql_start='/usr/local/Cellar/mysql/5.1.47/share/mysql/mysql.server start'
+alias mysql_stop='/usr/local/Cellar/mysql/5.1.47/share/mysql/mysql.server stop'
+alias mongo_start='mongod run --config /usr/local/Cellar/mongodb/1.6.3-x86_64/mongod.conf'
+alias redis_start='redis-server /usr/local/etc/redis.conf'
+
+alias r='rails'
+
+alias hibernateon="sudo pmset -a hibernatemode 5"
+alias hibernateoff="sudo pmset -a hibernatemode 0"
+alias hibernatedefault="sudo pmset -a hibernatemode 7"
+
+pman() { man -t "$@" | open -f -a Preview; }
+
+export GEM_PATH=/usr/local/Cellar/Gems/1.8:/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/lib/ruby/gems/1.8/gems
+export GEM_HOME=/usr/local/Cellar/Gems/1.8
+
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
