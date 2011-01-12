@@ -1,0 +1,22 @@
+#!/bin/sh
+#/ Usage: pyopen <package>
+#/ Open Python package by searching for pacakge name under Python
+#/ config directory.
+
+# Write usage and bail out with no args or with --help.
+test $# -eq 0 -o $(expr "$*" : ".*--help") -ne 0 && {
+    grep ^#/ < $0 |
+    cut -c4-
+    exit
+}
+
+python_path=$(python-config --prefix)
+
+path=$(find -E $python_path -iregex "^.*$1(.py)?" | head -n 1)
+
+if test ! $path ; then
+    echo "Python package \"$1\", not found" 1>&2
+    exit 1
+else
+    mate $path
+fi

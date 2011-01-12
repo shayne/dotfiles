@@ -1,0 +1,2 @@
+. ~/.bashrc
+[[ -f ~/.localrc ]] && . ~/.localrc
