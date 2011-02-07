@@ -19,5 +19,6 @@ pman() { man -t "$@" | open -f -a Preview; }
 
 export GEM_PATH=/usr/local/Cellar/Gems/1.8:/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/lib/ruby/gems/1.8/gems
 export GEM_HOME=/usr/local/Cellar/Gems/1.8
+export PATH=/usr/local/Cellar/Gems/1.8/bin:$PATH
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
