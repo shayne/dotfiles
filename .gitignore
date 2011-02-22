@@ -1,2 +1,7 @@
 vim/.netrwhist
 .DS_Store
+bin/ec2-host
+bin/ec2-ssh
+bin/dev
+bin/prod
+bin/pyopen
