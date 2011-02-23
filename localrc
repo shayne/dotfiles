@@ -22,3 +22,5 @@ export GEM_HOME=/usr/local/Cellar/Gems/1.8
 export PATH=/usr/local/Cellar/Gems/1.8/bin:$PATH
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+. prod
