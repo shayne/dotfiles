@@ -19,6 +19,7 @@
     ci     = commit
     x      = checkout HEAD
     st     = status
+    lg     = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [core]
     filemode = true
