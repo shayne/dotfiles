@@ -4,8 +4,9 @@ else
   export PS1='%3~$(git_info_for_prompt)%# '
 fi
 
-export EDITOR='mate -w'
-export PATH="$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/Cellar/python/2.6.5/Frameworks/Python.framework/Versions/2.6/bin:$PATH"
+# /usr/local/Cellar/python/2.6.5/Frameworks/Python.framework/Versions/2.6/bin
+export EDITOR='vim'
+export PATH="$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
 fpath=(~/.zsh/functions $fpath)
@@ -43,4 +44,4 @@ bindkey '^[[5D' beginning-of-line
 bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
-bindkey '^?' backward-delete-char 
+bindkey '^?' backward-delete-char

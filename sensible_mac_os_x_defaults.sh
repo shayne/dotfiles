@@ -58,7 +58,7 @@ defaults write com.apple.finder QuitMenuItem -bool true
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Empty Trash securely by default
-defaults write com.apple.finder EmptyTrashSecurely -bool true
+# defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 # Enable tap to click (Trackpad)
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true

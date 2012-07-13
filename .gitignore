@@ -5,3 +5,4 @@ bin/ec2-ssh
 bin/dev
 bin/prod
 bin/pyopen
+oh-my-zsh/

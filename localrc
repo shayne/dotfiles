@@ -1,6 +1,20 @@
-alias clang_gen='rm -rf /tmp/scan-build*; xcodebuild clean; /Developer/Tools/clang/scan-build --view xcodebuild'
+# Idle title should be blank
+ZSH_THEME_TERM_TITLE_IDLE=""
 
-export RUBYOPT='rubygems'
+pman() { man -t "$@" | open -f -a Preview; }
+
+alias ifab='fab -f ~/code/instagram/server-deploy/fabfile.py'
+alias ifap='lifab -P -z 50'
+alias pfap='pfab -P -z 50'
+
+alias nt='nosetests'
+alias jsonpp='python -m json.tool'
+
+git(){ hub "$@" }
+
+ec2id() { ec2who $@ | cut -f 2 }
+ec2ip() { ec2who $@ | cut -f 4 }
+ec2rename() { ec2tag -t Name=$2 $(ec2id $1) }
 
 alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
@@ -9,18 +23,66 @@ alias mysql_stop='/usr/local/Cellar/mysql/5.1.47/share/mysql/mysql.server stop'
 alias mongo_start='mongod run --config /usr/local/Cellar/mongodb/1.6.3-x86_64/mongod.conf'
 alias redis_start='redis-server /usr/local/etc/redis.conf'
 
+alias pianobar='killall pianokeys 2>/dev/null; pianokeys && pianobar'
+
 alias r='rails'
 
 alias hibernateon="sudo pmset -a hibernatemode 5"
 alias hibernateoff="sudo pmset -a hibernatemode 0"
 alias hibernatedefault="sudo pmset -a hibernatemode 7"
 
-pman() { man -t "$@" | open -f -a Preview; }
+export EDITOR="vim"
 
-export GEM_PATH=/usr/local/Cellar/Gems/1.8:/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/lib/ruby/gems/1.8/gems
-export GEM_HOME=/usr/local/Cellar/Gems/1.8
-export PATH=/usr/local/Cellar/Gems/1.8/bin:$PATH
+# emacs terminal keys
+bindkey -e
 
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+# vi style incremental search
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
 
+# if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
+#     eval $(ssh-agent)
+# fi
+
+export RUBYOPT='rubygems'
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Android paths
+PATH="$HOME/Android/android-sdk-mac_x86/tools:$PATH"
+PATH="$HOME/Android/android-sdk-mac_x86/platform-tools:$PATH"
+# PATH="$HOME/Android/android-ndk-r7-crystax-4:$PATH"
+# PATH="$HOME/Android/android-ndk-r7-crystax-4/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin:$PATH"
+# PATH="$HOME/Android/android-ndk-r7-crystax-5.beta2:$PATH"
+# PATH="$HOME/Android/android-ndk-r7-crystax-5.beta2/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin:$PATH"
+PATH="$HOME/Android/android-ndk-r7b:$PATH"
+PATH="$HOME/Android/android-ndk-r7b/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin:$PATH"
+PATH="$HOME/Android/depot_tools:$PATH"
+export PATH
+
+export DISTILLERY_SRC_PATH="$HOME/Code/Instagram/server"
+export DISTILLERY_SERVER_HOME="$HOME/Code/Instagram/server"
+export DISTILLERY_DEPLOY_HOME="$HOME/Code/Instagram/server-deploy"
+
+export VIRTUALENV_USE_DISTRIBUTE=1
+export PATH=/Users/shayne/Dropbox/pyenv/bin:$PATH
+export VIRTUAL_ENV=/Users/shayne/Dropbox/pyenv
+
+export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+
+
+if [[ -a /usr/local/Cellar/ec2-api-tools/ ]]; then
+    export EC2_HOME=$(echo /usr/local/Cellar/ec2-api-tools/**/jars)
+fi
+
+if [[ -a /usr/local/Cellar/aws-iam-tools/ ]]; then
+    export AWS_IAM_HOME=$(echo /usr/local/Cellar/aws-iam-tools/*/jars)
+fi
+
+export AWS_CREDENTIAL_FILE=$HOME/.aws-credentials-master
+export AWS_KEYPAIR=burbn
+
+# setup ec2 credentials
 . prod

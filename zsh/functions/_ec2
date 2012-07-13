@@ -1,0 +1,2 @@
+#compdef ec2ssh ec2hostcache ec2ip ec2who ec2rename ec2id
+compadd `ec2hostcache --complete`

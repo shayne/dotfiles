@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -e
+/usr/bin/env ec2ssh shayne@instaproxy ifab ${@:1}

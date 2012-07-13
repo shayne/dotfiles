@@ -1,0 +1,1 @@
+{"lists":[{"ec2":[{"disable-api-termination":"ec2minatt {} --disable-api-termination false"},{"disable-api-termination-stopped-instances":"ec2din -F instance-state-code=80 | fgrep INSTANCE | awk '{print }' | xargs -L 1 -I {} ec2minatt {} --disable-api-termination false"}]},{"linux":[{"cpu_usage":"mpstat | tail -n 1 | awk '{print \"%usr:\", }'"}]}]}

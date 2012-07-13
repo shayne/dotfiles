@@ -2,9 +2,9 @@
 set bell-style bell
 
 set expand-tilde off
-set input-meta off
-set convert-meta on
-set output-meta off
+set input-meta on
+set convert-meta off
+set output-meta on
 set horizontal-scroll-mode off
 set history-preserve-point on
 set mark-directories on
@@ -47,6 +47,7 @@ $if mode=emacs
 "\e[5D": backward-word
 "\e\e[C": forward-word
 "\e\e[D": backward-word
+
 
 # for rxvt
 "\e[8~": end-of-line

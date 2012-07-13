@@ -1,16 +1,11 @@
 [user]
-	name = Shayne Sweeney
-	email = shayne@instagram.com
+    name = Shayne Sweeney
+    email = shayne@instagram.com
 
 [alias]
     browse = !hub browse
     w      = !hub browse
     compare = !hub compare
-    sh     = !git-sh
-    grab   = !git-grab
-    thanks = !git-thanks
-    cv     = !git-cv
-    track  = !git-track
     ll     = log --pretty=oneline --abbrev-commit --max-count=15
     review = log -p --max-count=1
     wip    = !git add -u && git commit -m ...
@@ -20,11 +15,12 @@
     x      = checkout HEAD
     st     = status
     lg     = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-
+    dft    = difftool -y -t opendiff
 [core]
     filemode = true
     logallrefupdates = true
     whitespace = space-before-tab, trailing-space
+    quotepath = false
 
 [branch]
     autosetupmerge = true
@@ -40,7 +36,7 @@
     smtpserver = smtp.gmail.com
     smtpserverport = 587
     smtpencryption = tls
-    smtpuser = shayne@instagr.am
+    smtpuser = shayne@instagram.com
 
 [color]
     ui = auto
@@ -62,21 +58,24 @@
     changed = green bold
     untracked = blue bold
 [gist]
-	private = true
+    private = true
 [rebase]
-	autosquash = true
+    autosquash = true
 [url "git@github.com:"]
     insteadOf = "gh:"
-      pushInsteadOf = "github:"
-        pushInsteadOf = "git://github.com/"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
 [url "git://github.com/"]
     insteadOf = "github:"
 [url "git@gist.github.com:"]
     insteadOf = "gst:"
-      pushInsteadOf = "gist:"
-        pushInsteadOf = "git://gist.github.com/"
+    pushInsteadOf = "gist:"
+    pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
 [url "git@heroku.com:"]
     insteadOf = "heroku:"
-
+[push]
+	default = upstream
+[hub]
+	protocol = https

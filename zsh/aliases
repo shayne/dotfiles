@@ -31,3 +31,17 @@ alias rst='touch tmp/restart.txt'
 
 # commands starting with % for pasting from web
 alias %=' '
+
+# ipython
+alias ip='ipython'
+
+# ec2hostcache
+alias ec2host='ec2hostcache'
+
+# distillery
+alias add_ip='python ~/code/instagram/server/distillery/scripts/add_own_ip.py'
+
+# minibar btmm icloud
+alias -g minibar.icloud=minibar.53255850.members.btmm.icloud.com
+
+alias -g instaproxy='shayne@instaproxy'
