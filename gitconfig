@@ -16,6 +16,8 @@
     st     = status
     lg     = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     dft    = difftool -y -t opendiff
+    poh     = push origin HEAD
+	wdiff = diff --color-words
 [core]
     filemode = true
     logallrefupdates = true
@@ -57,6 +59,8 @@
     added = yellow
     changed = green bold
     untracked = blue bold
+[github]
+    user = shayne
 [gist]
     private = true
 [rebase]
@@ -76,6 +80,6 @@
 [url "git@heroku.com:"]
     insteadOf = "heroku:"
 [push]
-	default = upstream
+	default = tracking
 [hub]
 	protocol = https

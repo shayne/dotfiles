@@ -1,2 +1,2 @@
 #!/bin/bash
-ec2auth -p 22 -s "$(curl -s http://icanhazip.com)/32" default
+ec2auth -p $1 -s "$(curl -s whatismyip.akamai.com)/32" default

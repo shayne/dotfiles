@@ -16,6 +16,8 @@ ec2id() { ec2who $@ | cut -f 2 }
 ec2ip() { ec2who $@ | cut -f 4 }
 ec2rename() { ec2tag -t Name=$2 $(ec2id $1) }
 
+issh() { ec2ssh instaproxy ssh ubuntu@$(ec2host $1) }
+
 alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias mysql_start='/usr/local/Cellar/mysql/5.1.47/share/mysql/mysql.server start'
@@ -51,14 +53,14 @@ export RUBYOPT='rubygems'
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Android paths
-PATH="$HOME/Android/android-sdk-mac_x86/tools:$PATH"
-PATH="$HOME/Android/android-sdk-mac_x86/platform-tools:$PATH"
+PATH="$HOME/Android/android-sdk-macosx/tools:$PATH"
+PATH="$HOME/Android/android-sdk-macosx/platform-tools:$PATH"
 # PATH="$HOME/Android/android-ndk-r7-crystax-4:$PATH"
 # PATH="$HOME/Android/android-ndk-r7-crystax-4/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin:$PATH"
 # PATH="$HOME/Android/android-ndk-r7-crystax-5.beta2:$PATH"
 # PATH="$HOME/Android/android-ndk-r7-crystax-5.beta2/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin:$PATH"
-PATH="$HOME/Android/android-ndk-r7b:$PATH"
-PATH="$HOME/Android/android-ndk-r7b/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin:$PATH"
+PATH="$HOME/Android/android-ndk-r8b:$PATH"
+PATH="$HOME/Android/android-ndk-r8b/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin:$PATH"
 PATH="$HOME/Android/depot_tools:$PATH"
 export PATH
 
@@ -67,8 +69,8 @@ export DISTILLERY_SERVER_HOME="$HOME/Code/Instagram/server"
 export DISTILLERY_DEPLOY_HOME="$HOME/Code/Instagram/server-deploy"
 
 export VIRTUALENV_USE_DISTRIBUTE=1
-export PATH=/Users/shayne/Dropbox/pyenv/bin:$PATH
-export VIRTUAL_ENV=/Users/shayne/Dropbox/pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+export VIRTUAL_ENV="$HOME/.pyenv"
 
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
 
